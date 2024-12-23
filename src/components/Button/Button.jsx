@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Children } from 'react'
 import s from './Button.module.scss'
 
 const Button = ({children}) => {
   return (
     <>
-    <button className={s.btn}>{children}</button>
+
+      <button className={s.btn}>{children}</button>
     </>
   )
 }
