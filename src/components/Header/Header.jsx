@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './Header.module.scss'
 import Button from '../Button/Button'
+import Modal from '../Modal/Modal'
 
 const Header = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false)
+
+   const toggleModal = () => {
+      setIsModalOpen(!isModalOpen)
+   }
+
+   const closeModal = () => {
+      setIsModalOpen (false)
+   }
+
   return (
     <>
       <header className={s.header}>
@@ -22,12 +33,14 @@ const Header = () => {
                </div>
 
                <div className={s.btns}>
-                  <button className={s.btn}>CONTACT US</button>
+                  <button onClick={toggleModal} className={s.btn}>CONTACT US</button>
                   <Button>JOIN HYDRA</Button>
                </div>
             </nav>
          </div>
       </header>
+
+      <Modal isModalOpen={isModalOpen} onClose={closeModal}/>
     </>
   )
 }
